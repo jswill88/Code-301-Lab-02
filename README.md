@@ -1,7 +1,13 @@
 # Code-301-Lab-02
 Lab 02
 
+### Collaborators
+* Joshua Williams
+* Steve Baldock
 
+### Application Functionality
+
+* Enjoy the photo gallery of Horned Animals from all ends of the Earth and beyond. Filter the photos to view only specific Horned Animals. Feel like seeing our selection of Unicorns? Well feel free to filter.
 
 ### Feature 1: Display Images
 
@@ -41,4 +47,4 @@ Start time: 5:10PM
 
 Finish time: 6:10PM
 
-Actual time needed to complete: ___________
+Actual time needed to complete: 5:50PM

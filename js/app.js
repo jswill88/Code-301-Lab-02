@@ -2,7 +2,6 @@
 
 
 let allHornedAnimals = [];
-// let keyWords = [];
 
 //Add keyword to constructor
 //JQuery event listener on click
