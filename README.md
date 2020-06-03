@@ -41,4 +41,4 @@ Start time: 5:10PM
 
 Finish time: 6:10PM
 
-Actual time needed to complete: ___________
+Actual time needed to complete: 5:50PM
