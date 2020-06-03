@@ -1,0 +1,17 @@
+/* font-family: ‘Chau Philomene One’, sans-serif; */
+
+
+body{
+  background-color: lightgray;
+  /* width: 960px; */
+}
+
+main{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+  width: 960px;
+}

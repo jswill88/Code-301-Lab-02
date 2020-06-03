@@ -22,7 +22,7 @@ Horned.prototype.render = function(){
   const $newSection = $(`<section>${photoTemplate}</section>`);
   $newSection.find('img').attr('src', this.image_url);
   $newSection.find('img').attr('class', this.keyword);
-  $('main').append($newSection);
+  $('main').prepend($newSection);
 };
 
 $.ajax('Data/page-1.json', {method: 'GET', dataType: 'JSON'})
@@ -47,5 +47,5 @@ $.ajax('Data/page-1.json', {method: 'GET', dataType: 'JSON'})
 
 $('.change').change(function(){
   $('img').hide();
-  $('img.' + this.value).show();
+  $('img.' + this.value).fadeIn(1000);
 })
