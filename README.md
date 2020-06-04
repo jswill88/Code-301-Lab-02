@@ -48,3 +48,47 @@ Start time: 5:10PM
 Finish time: 6:10PM
 
 Actual time needed to complete: 5:50PM
+
+### Feature 1: Pagination
+Number and name of feature: Feature 4: Pagination
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 1:12PM
+
+Finish time: 2:12PM
+
+Actual time needed to complete: 2:30PM
+
+### Feature 2: Templating
+Number and name of feature: Feature 2: Templating
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 2:31PM
+
+Finish time: 3:31PM
+
+Actual time needed to complete: 3:40PM
+
+### Feature 3: Flexbox
+Number and name of feature: Feature 3: Flexbox
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 4:52PM
+
+Finish time: 5:30PM
+
+Actual time needed to complete: 5:38PM
+
+### Feature 4: Sort Images
+Number and name of feature: Feature 4: Sort Images
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 3:41PM
+
+Finish time: 4:41PM
+
+Actual time needed to complete: 4:40PM
