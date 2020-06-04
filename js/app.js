@@ -2,49 +2,119 @@
 
 
 let allHornedAnimals = [];
+const jsonFiles = ['Data/page-1.json', 'Data/page-2.json'];
+let showingFirstPage = true;
 
 //Add keyword to constructor
 //JQuery event listener on click
 //When clicked, loop through images and keep keyword matches
 //Use JQuery to create new option for each unique keyword
 
-function Horned(obj){
+function Horned(obj, data) {
   this.image_url = obj.image_url;
   this.keyword = obj.keyword;
+  this.data = data;
+  this.horns = obj.horns;
+  this.title = obj.title;
   allHornedAnimals.push(this);
 
 }
 
-Horned.prototype.render = function(){
-  console.log('in the render function')
+Horned.prototype.render = function () {
   const photoTemplate = $('#photo-template').html();
-  const $newSection = $(`<section>${photoTemplate}</section>`);
-  $newSection.find('img').attr('src', this.image_url);
-  $newSection.find('img').attr('class', this.keyword);
-  $('main').prepend($newSection);
+  // eslint-disable-next-line no-undef
+  let html = Mustache.render(photoTemplate, this);
+  return html;
+
+  // $newSection.find('img').attr('class', `${this.keyword} ${this.data}`);
+  // // $newSection.find('img').attr('class', this.data);
+  // $('main').prepend($newSection);
 };
 
-$.ajax('Data/page-1.json', {method: 'GET', dataType: 'JSON'})
-  .then(animal => {
-    animal.forEach(value => {
-      new Horned(value).render();
-    })}).then(() => {
-
-    const uniqueKeyword = [];
-    allHornedAnimals.forEach(value =>{
-      if(!(uniqueKeyword.includes(value.keyword))){
-        uniqueKeyword.push(value.keyword);
+function getData(data) {
+  $.ajax(jsonFiles[data], { method: 'GET', dataType: 'JSON' })
+    .then(animal => {
+      animal.forEach(value => {
+        // let imageHtml =
+        new Horned(value, data)
+        // .render();
+        // $('#gallery').append(imageHtml);
+      })
+    }).then(() => {
+      if (data === 0) {
+        const uniqueKeyword = [];
+        allHornedAnimals.forEach(value => {
+          if (!(uniqueKeyword.includes(value.keyword))) {
+            uniqueKeyword.push(value.keyword);
+          }
+        })
+        uniqueKeyword.forEach(value => {
+          let $newOption = $(`<option>${value}</option>`)
+          $('select').append($newOption);
+        })
       }
+    }).then(()=> {
+      sortByKeyword();
     })
-    uniqueKeyword.forEach(value =>{
-      let $newOption = $(`<option>${value}</option>`)
-      $('select').append($newOption);
-    })
+}
+// test
+getData(0);
+getData(1);
 
-    console.log(uniqueKeyword);
-  })
 
-$('.change').change(function(){
+
+$('.change').change(function () {
   $('img').hide();
-  $('img.' + this.value).fadeIn(1000);
+  if (this.value === 'default') {
+    sortByKeyword();
+  } else {
+    $('img.' + this.value).fadeIn(1000);
+    showingFirstPage = !(showingFirstPage);
+  }
 })
+
+$('#page-two').click(function () {
+  $('img').toggle();
+})
+
+$('#sort-by-horns').click(function () {
+  allHornedAnimals.sort((a,b) => a.horns - b.horns);
+  console.log(allHornedAnimals);
+  $('#gallery').html('');
+  allHornedAnimals.forEach(value => {
+    let imageHtml = value.render();
+    $('#gallery').append(imageHtml);
+  })
+  if(showingFirstPage) {
+    $('img.1').hide();
+  } else {
+    ('img.0').hide();
+  }
+})
+
+$('#sort-by-title').click(function () {
+  allHornedAnimals.sort((a,b) => a.title > b.title ? 1 : -1);
+  console.log(allHornedAnimals);
+  $('#gallery').html('');
+  allHornedAnimals.forEach(value => {
+    let imageHtml = value.render();
+    $('#gallery').append(imageHtml);
+  })
+  if(showingFirstPage) {
+    $('img.1').hide();
+  } else {
+    ('img.0').hide();
+  }
+})
+
+function sortByKeyword() {
+  allHornedAnimals.sort((a,b) => a.keyword > b.keyword ? 1 : -1);
+  console.log(allHornedAnimals);
+  $('#gallery').html('');
+  allHornedAnimals.forEach(value => {
+    let imageHtml = value.render();
+    $('#gallery').append(imageHtml);
+  })
+  $('img.1').hide();
+}
+
