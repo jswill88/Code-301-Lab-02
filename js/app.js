@@ -36,7 +36,7 @@ function getData(data) {
     .then(animal => {
       animal.forEach(value => {
         // let imageHtml =
-        new Horned(value, data)
+        new Horned(value, data);
         // .render();
         // $('#gallery').append(imageHtml);
       })
@@ -68,13 +68,21 @@ $('.change').change(function () {
   if (this.value === 'default') {
     sortByKeyword();
   } else {
-    $('img.' + this.value).fadeIn(1000);
-    showingFirstPage = !(showingFirstPage);
+    if (showingFirstPage) {
+      $('img.' + this.value + '.0').fadeIn(1000);
+    } else {
+      $('img.' + this.value + '.1').fadeIn(1000);
+    }
+    // showingFirstPage = !(showingFirstPage);
   }
 })
 
 $('#page-two').click(function () {
-  $('img').toggle();
+  sortByKeyword();
+  if (showingFirstPage){
+    $('img').toggle();
+  }
+  showingFirstPage = !showingFirstPage;
 })
 
 $('#sort-by-horns').click(function () {
@@ -86,9 +94,9 @@ $('#sort-by-horns').click(function () {
     $('#gallery').append(imageHtml);
   })
   if(showingFirstPage) {
-    $('img.1').hide();
+    $('.1').hide();
   } else {
-    ('img.0').hide();
+    $('.0').hide();
   }
 })
 
@@ -102,8 +110,8 @@ $('#sort-by-title').click(function () {
   })
   if(showingFirstPage) {
     $('img.1').hide();
-  } else {
-    ('img.0').hide();
+  } else if (!showingFirstPage) {
+    $('img.0').hide();
   }
 })
 
