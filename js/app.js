@@ -26,16 +26,20 @@ function getData(data) {
   $.ajax(jsonFiles[data], { method: 'GET', dataType: 'JSON' })
     .then(animal => animal.forEach(value => new Horned(value, data))
     ).then(() => {
-      const uniqueKeyword = allHornedAnimals.reduce((acc, obj) => {
-        if (!acc.includes(obj.keyword)) {
-          acc.push(obj.keyword)
-        }
-        return acc;
-      }, [])
-      uniqueKeyword
-        .sort((a, b) => a > b ? 1 : -1)
-        .forEach(value => $('select')
-          .append(`<option>${value}</option>`))
+      if (data === jsonFiles.length - 1) {
+        const uniqueKeyword = allHornedAnimals
+          .map(obj => obj.keyword)
+          .reduce((acc, keyword) => {
+            if (!acc.includes(keyword)) {
+              acc.push(keyword)
+            }
+            return acc;
+          }, [])
+        uniqueKeyword
+          .sort((a, b) => a > b ? 1 : -1)
+          .forEach(value => $('select')
+            .append(`<option>${value}</option>`))
+      }
     }).then(() => {
       sortByKeyword();
     })
@@ -63,9 +67,17 @@ $('#page-two').click(function () {
 })
 
 $('#gallery').on('click', '.box', function () {
-  $(this).attr('id','close-up')
-  $(this).find('p').show()
-  $(this).find('i').show()
+  $('#gallery').find('.clone').hide();
+  const clone = $(this).clone();
+  clone.attr('id', 'close-up').addClass('clone')
+  clone.removeClass('box');
+  clone.find('p').show()
+  clone.find('i').show()
+  clone.insertAfter(this);
+})
+
+$('#gallery').on('click','i', function () {
+  $('#gallery').find('.clone').remove();
 })
 
 $('h3').click(function () {
