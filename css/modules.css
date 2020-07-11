@@ -154,8 +154,8 @@ button:first-of-type {
 
 #close-up img {
   width: 46%;
-  height: 96%;
-  padding: 1.5%;
+  height: 94%;
+  /* padding: 1.5%; */
   object-fit: contain;
   background: url(../images/no-image.png) center no-repeat;
   background-size: 35%;
@@ -191,6 +191,10 @@ select {
     height: 60%;
     top: 17%;
   }
+  #close-up img {
+    height: 96%;
+  }
+
   p {
     font-size: 20px;
   }
