@@ -74,10 +74,12 @@ $('#gallery').on('click', '.box', function () {
   clone.find('p').show()
   clone.find('i').show()
   clone.insertAfter(this);
+  $('body').css('overflow','hidden')
 })
 
 $('#gallery').on('click','i', function () {
   $('#gallery').find('.clone').remove();
+  $('body').css('overflow','auto')
 })
 
 $('h3').click(function () {

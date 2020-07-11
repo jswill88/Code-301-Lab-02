@@ -1432,5 +1432,6 @@
         },
         "openedWindows": []
     },
-    "pickerWorkingDir": "/Users/joshuawilliams/Documents/codefellows/301"
+    "pickerWorkingDir": "/Users/joshuawilliams/Documents/codefellows/301",
+    "quit.from.restart": true
 }

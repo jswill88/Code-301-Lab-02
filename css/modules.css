@@ -198,8 +198,8 @@ select {
 }
 @media only screen and (max-width: 460px) {
   body, html {
-    min-width: 375px;
-    max-width: 460px;
+    /* min-width: 375px; */
+    max-width: 100%;
   }
   header{
     min-width: 375px;
@@ -233,7 +233,6 @@ select {
     margin-top: 190px;
   }
   #close-up #image-cont{
-
     flex-direction: column;
   }
   #close-up {
@@ -245,10 +244,5 @@ select {
   #close-up img {
     width: 96%;
     height: 46%;
-    /* padding: 1.5%;
-    object-fit: contain;
-    background: url(../images/no-image.png) center no-repeat;
-    background-size: 35%;
-    background-color: black; */
   }
 }
