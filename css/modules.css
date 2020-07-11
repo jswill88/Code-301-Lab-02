@@ -193,6 +193,7 @@ select {
   }
   #close-up img {
     height: 96%;
+    margin-left: 5px;
   }
 
   p {
@@ -202,11 +203,7 @@ select {
 }
 @media only screen and (max-width: 460px) {
   body, html {
-    /* min-width: 375px; */
-    max-width: 100%;
-  }
-  header{
-    min-width: 375px;
+    min-width: 100%;
   }
   button {
     float: left;
@@ -238,15 +235,27 @@ select {
   }
   #close-up #image-cont{
     flex-direction: column;
+    height: 80%;
   }
   #close-up {
     height: 80%;
     top: 10%;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    /* overflow-y: scroll; */
+    /* overflow-x: ; */
+  }
+  #close-up #h2div {
+    height: 20%;
+    top: 5%;
+    /* overflow-y: scroll; */
+    /* overflow-x: ; */
+  }
+  #close-up #pdiv {
+    padding: none;
+    height: 40%;
   }
   #close-up img {
+    margin-top: 5px;
     width: 96%;
-    height: 46%;
+    height: 55%;
   }
 }
