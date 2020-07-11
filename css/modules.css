@@ -1,10 +1,9 @@
 
 header{
-  /* border-bottom: 5px solid rgb(68, 26, 26); */
-  height: 150px;
+  height: auto;
   text-align: center;
   width: 100%;
-  background-color: rgb(104, 171, 37);
+  background-color: rgb(140, 213, 67);
   margin-top: 0px;
   position: absolute;
   top: 0;
@@ -16,7 +15,7 @@ h2 {
 }
 
 footer {
-  background-color: rgb(104, 171, 37);
+  background-color: rgb(140, 213, 67);
   height: 75px;
   margin-top: 100px; 
 }
@@ -26,7 +25,8 @@ footer {
   border: black 3px solid;
   margin: 0 15px 30px 15px;
   background: url(../images/no-image.png) center no-repeat;
-  background-size: cover;
+  background-size: 50%;
+  background-color:black;
 }
 #close-up #image-cont{
   display: flex;
@@ -155,10 +155,11 @@ button:first-of-type {
 #close-up img {
   width: 46%;
   height: 96%;
-  padding: 2%;
+  padding: 1.5%;
   object-fit: contain;
   background: url(../images/no-image.png) center no-repeat;
   background-size: 35%;
+  background-color: black;
 }
 
 #close-up h2 {
@@ -171,10 +172,50 @@ button:first-of-type {
 i {
   color: red;
   cursor: pointer;
+  float: left;
 }
 i:hover {
   color: rgb(247, 78, 78);
 }
 select {
   text-transform: capitalize;
+}
+@media only screen and (max-width: 755px) {
+  #page-two {
+    margin-top: 250px;
+  }
+}
+@media only screen and (max-width: 460px) {
+  body, html {
+    min-width: 375px;
+    max-width: 460px;
+  }
+  header{
+    min-width: 375px;
+  }
+  button {
+    float: left;
+    margin: 0px auto;
+    width: 33.3%;
+    height: 60px;
+    
+  }
+  button:first-of-type {
+    float: left;  
+    margin: 0 auto;
+    width: 33.3%;
+  }
+  .change {
+    margin-bottom: 0px;
+    float: left;
+    width: 33.3%;
+    height: 60px;
+    text-align: center;
+  }
+  h1 {
+    font-size: 2.5em;
+  }
+  #page-two {
+    margin-top: 190px;
+  }
 }
