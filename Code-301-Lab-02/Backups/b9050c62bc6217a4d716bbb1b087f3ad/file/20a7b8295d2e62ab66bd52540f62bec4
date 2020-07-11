@@ -1,4 +1,4 @@
-file:///Users/joshuawilliams/Documents/codefellows/301/Code-301-Lab-02/css/modules.css {"mtime":1594496556632,"ctime":1591233120519,"size":4170,"etag":"35ci162cp4ag","orphaned":false}
+file:///Users/joshuawilliams/Documents/codefellows/301/Code-301-Lab-02/css/modules.css {"mtime":1594497158710,"ctime":1591233120519,"size":4036,"etag":"35ci21ma5466","orphaned":false}
 
 header{
   height: auto;
@@ -234,12 +234,8 @@ select {
     margin-top: 190px;
   }
   #close-up #image-cont{
-    /* display: flex; */
+
     flex-direction: column;
-    /* align-items: center; */
-    /* justify-content: space-evenly;
-    background: none;
-    background-color:  rgb(104, 171, 37); */
   }
   #close-up {
     height: 80%;
@@ -250,10 +246,5 @@ select {
   #close-up img {
     width: 96%;
     height: 46%;
-    /* padding: 1.5%;
-    object-fit: contain;
-    background: url(../images/no-image.png) center no-repeat;
-    background-size: 35%;
-    background-color: black; */
   }
 }
