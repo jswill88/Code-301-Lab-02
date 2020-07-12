@@ -1,5 +1,7 @@
 'use strict';
 
+// const { on } = require("process");
+
 let allHornedAnimals = [];
 const jsonFiles = ['Data/page-1.json', 'Data/page-2.json'];
 let showingFirstPage = true;
@@ -66,6 +68,11 @@ $('#page-two').click(function () {
   showingFirstPage = !showingFirstPage;
 })
 
+$(document).ready(function() {
+  $('h1').hide()
+  $('h1').fadeIn(1000);
+})
+
 $('#gallery').on('click', '.box', function () {
   $('#gallery').find('.clone').hide();
   const clone = $(this).clone();
@@ -74,12 +81,16 @@ $('#gallery').on('click', '.box', function () {
   clone.find('p').show()
   clone.find('i').show()
   clone.insertAfter(this);
+  clone.hide();
+  clone.slideDown(200,'linear');
   $('body').css('overflow','hidden')
 })
 
 $('#gallery').on('click','i', function () {
-  $('#gallery').find('.clone').remove();
-  $('body').css('overflow','auto')
+  $('#gallery').find('.clone').slideUp(200,'linear', () => {
+    $('#gallery').find('.clone').remove();
+    $('body').css('overflow','auto')
+  })
 })
 
 $('h3').click(function () {
